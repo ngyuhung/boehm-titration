@@ -1,5 +1,6 @@
 from .settings import *
 from .titration import _Titration
+import numpy as np
 from uncertainties import ufloat, UFloat
 
 
@@ -12,8 +13,8 @@ class Standardisation(_Titration):
 
         self.desc = f'{X[unknown]} standardisation with {X[standard]}'
 
-        self.vanalyte = ufloat(vanalyte, vanalyte/1e-3*U1000)
-        self.vtitrant = ufloat(vtitrant, vtitrant/1e-3*U1000)
+        self.vanalyte = sum(ufloat(1e-3, U1000) for _ in range(int(np.ceil(vanalyte/1e-3))))
+        self.vtitrant = sum(ufloat(1e-3, U1000) for _ in range(int(np.ceil(vtitrant/1e-3))))
 
         if cstandard:
             self.cstandard = cstandard

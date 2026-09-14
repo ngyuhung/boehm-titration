@@ -13,9 +13,9 @@ class Boehm(_Titration):
 
         super().__init__(data, vmin, vmax)
 
-        self.vtotal: UFloat = ufloat(vtotal, vtotal/1e-3*U1000)
-        self.valiquot: UFloat = ufloat(valiquot, valiquot/1e-3*U1000)
-        self.vhcl: UFloat = ufloat(vhcl, vhcl/1e-3*U1000)
+        self.vtotal: UFloat = sum(ufloat(1e-3, U1000) for _ in range(int(np.ceil(vtotal/1e-3))))
+        self.valiquot: UFloat = sum(ufloat(1e-3, U1000) for _ in range(int(np.ceil(valiquot/1e-3))))
+        self.vhcl: UFloat = sum(ufloat(1e-3, U1000) for _ in range(int(np.ceil(vhcl/1e-3))))
 
         self.chcl: UFloat = chcl
         self.cnaoh: UFloat =  cnaoh
