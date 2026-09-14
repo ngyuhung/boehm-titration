@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boehm-titration"
+version = "0.1.0"
+description = "Packages and notebooks for analysing results of Boehm titration for activated carbons "
+requires-python = ">=3.10"
+
+dependencies = [
+    "numpy",
+    "scipy",
+    "pandas",
+    "matplotlib",
+    "uncertainties",
+    "molmass",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

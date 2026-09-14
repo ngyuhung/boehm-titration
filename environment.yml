@@ -1,0 +1,12 @@
+name: boehm-titration
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+      - -e .
